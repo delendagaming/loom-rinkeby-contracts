@@ -1179,9 +1179,9 @@ program
           QuestCoinLoomJSON.networks[extdevNetworkId].address;
       } else if (contractType === "token") {
         tokenRinkebyAddress =
-          /*QuestLootRinkebyJSON.networks[rinkebyNetworkId].address*/ "0x643C4779431e88E524F3318760f67D78d7e257c2";
+          QuestLootRinkebyJSON.networks[rinkebyNetworkId].address;
         rinkebyTxHash =
-          /*QuestLootRinkebyJSON.networks[rinkebyNetworkId].transactionHash*/ "0x8d54b4b8cc0763ce3e380dfbe70acebfd13967edb852d406196a3146bd5f4f8b";
+          QuestLootRinkebyJSON.networks[rinkebyNetworkId].transactionHash;
         tokenExtdevAddress =
           QuestLootLoomJSON.networks[extdevNetworkId].address;
       } else {
