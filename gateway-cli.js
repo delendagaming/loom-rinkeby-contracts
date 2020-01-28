@@ -567,7 +567,7 @@ function loadRinkebyAccount() {
 */
 
   const privateKey = fs.readFileSync(
-    path.join(__dirname, "./rinkeby_private_key_USER"),
+    path.join(__dirname, "./rinkeby_private_key_CREATOR"),
     "utf-8"
   );
 
@@ -583,7 +583,7 @@ function loadRinkebyAccount() {
 
 function loadExtdevAccount() {
   const privateKeyStr = fs.readFileSync(
-    path.join(__dirname, "./extdev_private_key_USER"),
+    path.join(__dirname, "./extdev_private_key_CREATOR"),
     "utf-8"
   );
   const privateKey = CryptoUtils.B64ToUint8Array(privateKeyStr);
@@ -853,7 +853,8 @@ program
         ownerRinkebyAddress: rinkeby.account.address,
         tokenExtdevAddress: QuestLootLoomJSON.networks[extdevNetworkId].address,
         tokenRinkebyAddress:
-          /*QuestLootRinkebyJSON.networks[rinkebyNetworkId].address*/'0x643C4779431e88E524F3318760f67D78d7e257c2',
+          QuestLootRinkebyJSON.networks[rinkebyNetworkId]
+            .address /*'0x643C4779431e88E524F3318760f67D78d7e257c2'*/,
         timeout: options.timeout ? options.timeout * 1000 : 120000
       });
       console.log(`Token ${uid} deposited to DAppChain Gateway...`);

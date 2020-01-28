@@ -16,6 +16,13 @@ module.exports = function(deployer, network, accounts) {
     await deployer.deploy(QuestLootLoom, gatewayAddress);
     const myQuestLootLoomInstance = await QuestLootLoom.deployed();
 
+    await deployer.deploy(
+      QuestController,
+      myQuestCoinLoomInstance.address,
+      myQuestLootLoomInstance.address
+    );
+    const myQuestControllerInstance = await QuestController.deployed();
+
     console.log(
       "\n*************************************************************************\n"
     );
@@ -23,15 +30,13 @@ module.exports = function(deployer, network, accounts) {
       `QuestCoinLoom Contract Address: ${myQuestCoinLoomInstance.address}`
     );
     console.log(
-      `QuestLootLoom Contract Address: ${myQuestLootLoomInstance.address}`
+      `QuestLootLoom Contract Address: ${myQuestLootLoomInstance.address} (owner contract to be initiated)`
+    );
+    console.log(
+      `QuestController Contract Address: ${myQuestControllerInstance.address}`
     );
     console.log(
       "\n*************************************************************************\n"
-    );
-    await deployer.deploy(
-      QuestController,
-      myQuestCoinLoomInstance.address,
-      myQuestLootLoomInstance.address
     );
   });
 };
